@@ -70,7 +70,7 @@
 
 #chapter-titles li {
 	padding: 0.2rem;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	list-style: none;
 	cursor: pointer;
 	transition: 150ms linear;
