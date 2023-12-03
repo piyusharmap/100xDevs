@@ -1,3 +1,17 @@
-# 100xDevs Cohort
+# 100xDevs Cohort2
 
-This is a collection of all my work, including bounty assignments, projects, and more, done during Harkirat's 100xDevs cohort.
+This repository contains my work, including assignments, bounty solutions, and more throughout the cohort.
+
+<details>
+<summary><strong>Bounties</strong></summary>
+
+### Bounty 1
+
+-   [Seekbar Segments](https://github.com/piyusharmap/100xDevs/tree/master/VideoJS%20Widevine)
+    -   **Description**: Define an array of segments and divide the seekbar into those segments. Define a function that allows the user to scroll to the start of a specific segment.
+
+</details>
+
+<details>
+<summary><strong>Assignments</strong></summary>
+</details>
