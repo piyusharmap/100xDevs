@@ -1,27 +1,64 @@
 const chaptersToggle = document.getElementById("chapter-ctrl-btn");
 const chaptersContainer = document.getElementById("chapters-container");
 
-// to control video playblack using spacebar and arrow keys
+// video controls using keyboard
 document.addEventListener("keydown", function (event) {
-	switch (event.key) {
-		case " ":
-			if (player.paused()) {
-				player.play();
-			} else {
-				player.pause();
-			}
-			break;
-		case "ArrowLeft":
-			console.log(player.currentTime());
-			scrollToSegment(player, player.currentTime() - 10);
-			break;
-		case "ArrowRight":
-			scrollToSegment(player, player.currentTime() + 10);
-			break;
-		default:
-			break;
+	const keyActions = {
+		" ": () => togglePlayPause(),
+		ArrowRight: () => skipForward(),
+		ArrowLeft: () => skipBackward(),
+		ArrowUp: () => increaseVolume(),
+		ArrowDown: () => reduceVolume(),
+		m: () => toggleMute(),
+	};
+
+	const action = keyActions[event.key];
+	if (action) {
+		action();
 	}
 });
+
+// to toggle play button
+function togglePlayPause() {
+	if (player.paused()) {
+		player.play();
+	} else {
+		player.pause();
+	}
+}
+
+// to skip video forward
+function skipForward() {
+	if (!player.paused()) {
+		scrollToSegment(player, player.currentTime() + 10);
+	}
+}
+
+// to skip video backward
+function skipBackward() {
+	if (!player.paused()) {
+		scrollToSegment(player, player.currentTime() - 10);
+	}
+}
+
+// to toggle mute button
+function toggleMute() {
+	if (player.muted()) {
+		player.muted(false);
+	} else {
+		player.muted(true);
+	}
+}
+
+// to increase volume
+function increaseVolume() {
+	player.volume(player.volume() + 0.1);
+}
+
+// to reduce volume
+function reduceVolume() {
+	player.volume(player.volume() - 0.1);
+}
 
 // to toggle the visibility of chapters container
 chaptersToggle.addEventListener("click", function () {
@@ -47,6 +84,7 @@ let videoInfo = {
 			title: "Chapter 1",
 			start: 0,
 			end: 45,
+			description: "lorem ipsum lumsum dimsum iloten erihai",
 		},
 		{
 			title: "Chapter 2",
@@ -56,10 +94,15 @@ let videoInfo = {
 		{
 			title: "Chapter 3",
 			start: 130,
-			end: 200,
+			end: 170,
 		},
 		{
 			title: "Chapter 4",
+			start: 170,
+			end: 200,
+		},
+		{
+			title: "Chapter 5",
 			start: 200,
 			end: 210,
 		},
@@ -96,7 +139,7 @@ var player = videojs(
 
 		player.ready(function () {
 			player.tech(true).on("keystatuschange", function (event) {
-				// console.log("event: ", event);
+				// .log("event: ", event);
 			});
 		});
 	}
@@ -105,16 +148,19 @@ var player = videojs(
 function addChapterTitles(player) {
 	const chapterTitle = document.getElementById("chapter-titles");
 
-	videoInfo.segements.forEach(function (segment, index) {
+	videoInfo.segements.forEach(function (segment) {
 		const title = document.createElement("li");
+		const titleDuration = document.createElement("span");
 
 		title.innerHTML = segment.title;
+		titleDuration.innerText = secondsToTime(segment.start);
 
 		title.addEventListener("click", function () {
 			scrollToSegment(player, segment.start);
 		});
 
 		chapterTitle.appendChild(title);
+		title.appendChild(titleDuration);
 	});
 }
 
@@ -125,17 +171,12 @@ function addChapterControls(player) {
 		const segmentButton = document.createElement("span");
 		segmentButton.classList.add("chapter-break");
 
-		segmentButton.style.height = "100%";
-		// to calculate the width of chapter
 		segmentButton.style.width =
 			(segment.end / videoInfo.duration) * 100 -
 			(segment.start / videoInfo.duration) * 100 +
-			"%";
-		segmentButton.style.position = "absolute";
-		// to calculate left margin for the chapter
+			"%"; // to calculate the width of chapter
 		segmentButton.style.left =
-			(segment.start / videoInfo.duration) * 100 + "%";
-		segmentButton.style.border = "none";
+			(segment.start / videoInfo.duration) * 100 + "%"; // to calculate left margin
 
 		seekBar.el().appendChild(segmentButton);
 	});
@@ -145,4 +186,22 @@ function addChapterControls(player) {
 function scrollToSegment(player, startTime) {
 	player.currentTime(startTime);
 	player.play();
+}
+
+// to change the timestamp to a proper format
+function secondsToTime(timestamp) {
+	const hours = Math.floor(timestamp / 3600);
+	const minutes = Math.floor((timestamp % 3600) / 60);
+	const seconds = Math.floor(timestamp % 60);
+
+	let timeFormat = "";
+
+	if (hours > 0) {
+		timeFormat += `${hours.toString().padStart(2, "0")}:`;
+	}
+
+	timeFormat += `${minutes.toString().padStart(2, "0")}:${seconds
+		.toString()
+		.padStart(2, "0")}`;
+	return timeFormat;
 }
