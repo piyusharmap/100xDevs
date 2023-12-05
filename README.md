@@ -14,4 +14,9 @@ This repository contains my work, including assignments, bounty solutions, and m
 
 <details>
 <summary><strong>Assignments</strong></summary>
+
+### Assignment 1
+
+-   [JS Questions](https://github.com/piyusharmap/100xDevs/tree/master/Assignments/01-js)
+    -   **Description**: JavaScript practice questions including Easy, Medium and Hard.
 </details>
