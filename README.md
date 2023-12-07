@@ -7,7 +7,7 @@ This repository contains my work, including assignments, bounty solutions, and m
 
 ### Bounty 1
 
--   [Seekbar Segments](https://github.com/piyusharmap/100xDevs/tree/master/VideoJS%20Widevine)
+-   [Seekbar Segments](https://github.com/piyusharmap/100xDevs/tree/master/Bounty/VideoJS%20Widevine)
     -   **Description**: Define an array of segments and divide the seekbar into those segments. Define a function that allows the user to scroll to the start of a specific segment.
 
 </details>
@@ -17,6 +17,6 @@ This repository contains my work, including assignments, bounty solutions, and m
 
 ### Assignment 1
 
--   [JS Questions](https://github.com/piyusharmap/100xDevs/tree/master/Assignments/01-js)
+-   [JS Practice Questions](https://github.com/piyusharmap/100xDevs/tree/master/Assignments/01)
     -   **Description**: JavaScript practice questions including Easy, Medium and Hard.
 </details>
