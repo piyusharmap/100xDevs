@@ -1,22 +1,29 @@
-# 100xDevs Cohort2
+# 100xDevs Cohort-2 (0-100)
 
-This repository contains my work, including assignments, bounty solutions, and more throughout the cohort.
+This repository contains my work, including assignments, bounty solutions, and more throughout the cohort. Feel free to explore these solutions and ping me if you have any suggestions regarding them.
+
+Click [here](https://harkirat.classx.co.in/new-courses/8-live-0-100-complete) to view course.
+
+> The solutions provided in this repository are my own, and I do not claim them to be the most optimized ones in any way.
+
+## Bounty
 
 <details>
-<summary><strong>Bounties</strong></summary>
+<summary>View bounties</summary>
 
-### Bounty 1
+### Problem 1 [_solution_](https://github.com/piyusharmap/100xDevs/tree/master/Bounty/VideoJS%20Widevine)
 
--   [Seekbar Segments](https://github.com/piyusharmap/100xDevs/tree/master/Bounty/VideoJS%20Widevine)
-    -   **Description**: Define an array of segments and divide the seekbar into those segments. Define a function that allows the user to scroll to the start of a specific segment.
+-   <h3>Description</h3>Define an array of segments and divide the seekbar into those segments. Define a function that allows the user to scroll to the start of a specific segment.
 
 </details>
 
+## Assignment
+
 <details>
-<summary><strong>Assignments</strong></summary>
+<summary>View assignments</summary>
 
-### Assignment 1
+### Assignment 1 [_solution_](https://github.com/piyusharmap/100xDevs/tree/master/Assignments/01)
 
--   [JS Practice Questions](https://github.com/piyusharmap/100xDevs/tree/master/Assignments/01)
-    -   **Description**: JavaScript practice questions including Easy, Medium and Hard.
+-   <h3>Description</h3>Practice problems related to basic javascript concepts like objects, arrays and classes.
+
 </details>
